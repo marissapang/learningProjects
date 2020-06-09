@@ -1,0 +1,17 @@
+.breadcrumb, .side_categories {
+	background-color: rgba(245, 245, 242, 0.5); /* #f5f5f2 at 0.5 opacity*/ 
+	border: 0;
+}
+
+.basket-mini, .btn {
+	color: #331C1A;
+}
+
+#accounts_navbar li a{
+	color: rgba(109, 89, 93, 0.8) /* #6D5953 at 0.8 opacity*/
+}
+
+.browse_page_items {
+	width: 100%;
+	background-color: pink;
+}
