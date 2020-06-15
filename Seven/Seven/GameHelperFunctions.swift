@@ -24,8 +24,10 @@ func getFirstTwoTilePositions(dimensions: Int) -> [(Int, Int)]{
     return [(row1, col1), (row2, col2)]
 }
 
-func addFirstTiles(firstTwoTilePositions: [(Int, Int)], tileValueBoard: Gameboard<Int>, tileViewBoard: Gameboard<TileView?>) -> (Gameboard<Int>, Gameboard<TileView?>){
-    
+func addFirstTiles(dimensions: Int, tileValueBoard: Gameboard<Int>, tileViewBoard: Gameboard<TileView?>) ->
+    (Gameboard<Int>, Gameboard<TileView?>){
+        
+    let firstTwoTilePositions = getFirstTwoTilePositions(dimensions: dimensions)
     let (row1, col1) = firstTwoTilePositions[0]
     let (row2, col2) = firstTwoTilePositions[1]
     
@@ -37,12 +39,11 @@ func addFirstTiles(firstTwoTilePositions: [(Int, Int)], tileValueBoard: Gameboar
     
     // add new tileView to tileViewBoard
     var newTileViewBoard = tileViewBoard
-    newTileViewBoard[row1, col1] = TileView(x:30, y: 50)
-    newTileViewBoard[row2, col2] = TileView(x: 230, y:50)
+    newTileViewBoard[row1, col1] = TileView(x:30, y: 300)
+    newTileViewBoard[row2, col2] = TileView(x: 230, y:300)
     print("newTileViewBoard is: \(newTileViewBoard)")
     
     return (newTileValueBoard, newTileViewBoard)
-    
 }
 
 

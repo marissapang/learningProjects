@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     var tileValueBoard : Gameboard<Int>
     var tileMovementBoard : Gameboard<Movement>
     var tileViewBoard : Gameboard<TileView?>
+    var tileAnimationBoard : Gameboard<UIViewPropertyAnimator>
     var rowIndexPositionBoard : Gameboard<Int>
     var colIndexPositionBoard : Gameboard<Int>
+    
     
     var direction = Direction.undefined
     
@@ -26,6 +28,35 @@ class ViewController: UIViewController {
     @IBAction func swipeUp(_ sender: Any) {
         print("swipeUp button clicked")
         direction = .up
+        
+        tileAnimationBoard = moveAllTiles(dimensions: dimensions, tileViewBoard: tileViewBoard, tileAnimationBoard: tileAnimationBoard)
+        
+        var animator : UIViewPropertyAnimator
+        var view : TileView?
+        
+        for i in 0..<dimensions {
+            for j in 0..<dimensions {
+                animator = tileAnimationBoard[i,j]
+                animator.startAnimation()
+            }
+        }
+        
+
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+           // Code you want to be delayed
+            for i in 0..<self.dimensions {
+                for j in 0..<self.dimensions {
+                    view = self.tileViewBoard[i,j]
+                    
+                    if let v = view {
+                        self.view.addSubview(v)
+                    }
+                }
+            }
+
+        }
+                
         // test to see if i can remove a view from a super view from list
         /* var count : Int = 0
         for i in 0..<dimensions {
@@ -58,6 +89,7 @@ class ViewController: UIViewController {
         tileValueBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         tileMovementBoard = Gameboard<Movement>(d: dimensions, initialValue: .stay)
         tileViewBoard = Gameboard<TileView?>(d: dimensions, initialValue: nil)
+        tileAnimationBoard = Gameboard<UIViewPropertyAnimator>(d: dimensions, initialValue: UIViewPropertyAnimator())
         rowIndexPositionBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         colIndexPositionBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         super.init(nibName: nil, bundle: nil)
@@ -67,6 +99,7 @@ class ViewController: UIViewController {
         tileValueBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         tileMovementBoard = Gameboard<Movement>(d: dimensions, initialValue: .stay)
         tileViewBoard = Gameboard<TileView?>(d: dimensions, initialValue: nil)
+        tileAnimationBoard = Gameboard<UIViewPropertyAnimator>(d: dimensions, initialValue: UIViewPropertyAnimator())
         rowIndexPositionBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         colIndexPositionBoard = Gameboard<Int>(d: dimensions, initialValue: 0)
         super.init(coder: aDecoder)
@@ -80,16 +113,12 @@ class ViewController: UIViewController {
     
     //MARK: Game Functions
     func startGame(){
-        let firstTwoTilePositions = getFirstTwoTilePositions(dimensions: dimensions)
-        (tileValueBoard, tileViewBoard) = addFirstTiles(firstTwoTilePositions: firstTwoTilePositions, tileValueBoard: tileValueBoard, tileViewBoard: tileViewBoard)
-        // print(tileValueBoard)
-        // print(tileViewBoard)
+        (tileValueBoard, tileViewBoard) = addFirstTiles(dimensions: dimensions, tileValueBoard: tileValueBoard, tileViewBoard: tileViewBoard)
         
-        //var subview : TileView?
         for i in 0..<dimensions {
             for j in 0..<dimensions {
                 if let subview = tileViewBoard[i,j] { //if subview is not nil
-                    self.view.addSubview(subview)
+                    //self.view.addSubview(subview)
                 }
             }
         }

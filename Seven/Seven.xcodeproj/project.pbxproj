@@ -17,6 +17,7 @@
 		185FF8FE2493761600FD52A0 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FF8FD2493761600FD52A0 /* GameModel.swift */; };
 		185FF90024937A9600FD52A0 /* GameViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FF8FF24937A9600FD52A0 /* GameViews.swift */; };
 		185FF90224937C4300FD52A0 /* GameHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FF90124937C4300FD52A0 /* GameHelperFunctions.swift */; };
+		185FF904249665E800FD52A0 /* AnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FF903249665E800FD52A0 /* AnimationFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		185FF8FD2493761600FD52A0 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		185FF8FF24937A9600FD52A0 /* GameViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViews.swift; sourceTree = "<group>"; };
 		185FF90124937C4300FD52A0 /* GameHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHelperFunctions.swift; sourceTree = "<group>"; };
+		185FF903249665E800FD52A0 /* AnimationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				185FF8DD249375F700FD52A0 /* SceneDelegate.swift */,
 				185FF8DF249375F700FD52A0 /* ViewController.swift */,
 				185FF90124937C4300FD52A0 /* GameHelperFunctions.swift */,
+				185FF903249665E800FD52A0 /* AnimationFunctions.swift */,
 				185FF8FF24937A9600FD52A0 /* GameViews.swift */,
 				185FF8FD2493761600FD52A0 /* GameModel.swift */,
 				185FF8E1249375F700FD52A0 /* Main.storyboard */,
@@ -212,6 +215,7 @@
 				185FF8E0249375F700FD52A0 /* ViewController.swift in Sources */,
 				185FF90224937C4300FD52A0 /* GameHelperFunctions.swift in Sources */,
 				185FF8FE2493761600FD52A0 /* GameModel.swift in Sources */,
+				185FF904249665E800FD52A0 /* AnimationFunctions.swift in Sources */,
 				185FF90024937A9600FD52A0 /* GameViews.swift in Sources */,
 				185FF8DC249375F700FD52A0 /* AppDelegate.swift in Sources */,
 				185FF8DE249375F700FD52A0 /* SceneDelegate.swift in Sources */,
