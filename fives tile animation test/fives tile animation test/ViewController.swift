@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 
         switch recognizer.state {
         case .began:
-            direction = directionFromVelocity(recognizer.velocity(in: tileView))
+            direction = directionFromVelocity(recognizer.velocity(in: self.view))
             
             switch direction {
             case .left:
